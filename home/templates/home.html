@@ -1,0 +1,18 @@
+{% extends "bases/base.html" %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
+{% block 'content' %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <h1 class="text-center mt-5">Página Inicial</h1>
+    <a href="{% url 'cadastro' %}" class="text-end mx-4">cadastre-se</a>
+{% endblock %}

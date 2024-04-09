@@ -1,0 +1,63 @@
+{% extends "bases/base.html" %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'usuarios/css/cadastro.css' %}">
+{% endblock %}
+
+{% block 'content' %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="container">
+        <h2 class="text-center mt-5 mb-5 titulo-cadastro">Cadastre-se</h2>
+        <div class="container-fluid conteudo">
+            <form action="{% url 'cadastro' %}" method="POST">{% csrf_token %}
+                <div class="row mb-2 mx-sm-4 mx-2">
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <label class="col-form-label fs-6" for="nome_completo">NOME COMPLETO</label>
+                        <input class="form-control p-2 fs-5" type="text" id="nome_completo" name="nome_completo" value="{{ dados_submetidos.nome_completo }}">
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <label class="col-form-label fs-6" for="email">EMAIL</label>
+                        <input class="form-control p-2 fs-5" type="text" id="email" name="email"  value="{{ dados_submetidos.email }}">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <label class="col-form-label fs-6" for="whatsapp">WHATSAPP</label>
+                        <input class="form-control p-2 fs-5" type="text" id="whatsapp" name="whatsapp"  value="{{ dados_submetidos.whatsapp }}">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <label class="col-form-label fs-6" for="usuario">USUÁRIO</label>
+                        <input class="form-control p-2 fs-5" type="text" id="usuario" name="usuario" title="O Nome de Usuário pode conter letras maiúsculas, minúscula e estes caracteres especiais '_ - @'"  value="{{ dados_submetidos.usuario }}">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <label class="col-form-label fs-6" for="confirmar_senha">SENHA</label>
+                        <input class="form-control p-2 fs-5" type="password" id="senha" name="senha" title="O campo Senha deve conter no mínimo 8 caracteres, com pelo menos uma letra maiúscula, uma minúscula e um caracter especial '- _ @ # $ &' e deve ter no máximo 25 caracteres"  value="{{ dados_submetidos.senha }}">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <label class="col-form-label fs-6" for="confirmar_senha">CONFIRMAR SENHA</label>
+                        <input class="form-control p-2 fs-5" type="password" id="confirmar_senha" name="confirmar_senha"  value="{{ dados_subemtidos.confirmar_senha }}">
+                    </div>
+                </div>
+                <div class="botoes d-flex justify-content-center mt-5 mb-3">
+                    <div>
+                        <button class="btn btn-success btn-sm mt-2 px-5 fs-5 mx-md-2 mx-0"  type="submit" name="cadastrar">CADASTRAR</button>
+                    </div>
+                    <div class="d-flex flex-md-row flex-column justify-content-center">
+                        <a class="btn btn-primary btn-sm mt-2 px-5 fs-5 mx-2 botao" href="{% url 'home' %}">INÍCIO</a>
+                        <a class="btn btn-danger btn-sm mt-2 px-5 fs-5 mx-2 botao" href="#">SAIR</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block 'scripts' %}
+   
+{% endblock %}

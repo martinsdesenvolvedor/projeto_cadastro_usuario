@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+header {
+    background: #5a595963;
+    color: #edf0e9;
+
+}
+
+.logo_pm, .logo_cit {
+    width: 6%;
+}
+
+.logo_pm {
+    border-radius: 50%;
+}
+
+.mobile-header, .mobile-body {
+    text-align: center;
+
+}
+
+.mobile-header {
+    margin: 1rem 0;
+}
+
+.mobile-body {
+    margin-top: 2rem;
+}
+   
+.logo_cit_mobile, .logo_pm_mobile {
+    width: 40%;
+    
+    
+}
+
+.logo_pm_mobile {
+    border-radius: 50%;
+}
+
+.botao{
+    width: 180px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        background: none;
+    }
+
+    .titulo {
+        font-size: 1rem;
+    }
+
+    .subtitulo {
+        font-size: 0.7rem;
+
+    }
+
+ 
+
+
+
+}
